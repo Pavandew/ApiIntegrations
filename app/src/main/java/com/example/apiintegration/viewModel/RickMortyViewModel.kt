@@ -18,7 +18,8 @@ class RickMortyViewModel: ViewModel() {
 
     private val repository = RickMortyRepository(RetrofitClient.apiRickMortyService)
 
-    private val _rickMortyData =  MutableStateFlow<RickMortyUiState>(RickMortyUiState.Loading)
+    private val _rickMortyData =  MutableStateFlow<RickMortyUiState>(
+        RickMortyUiState.Loading)
     val rickMortyData = _rickMortyData.asStateFlow()
 
     init {

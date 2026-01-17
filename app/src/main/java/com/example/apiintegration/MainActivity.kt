@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
 import com.example.apiintegration.ui.HomeFragment
 import com.example.apiintegration.ui.RickMortyFragment
 
@@ -20,10 +21,10 @@ class MainActivity : AppCompatActivity() {
 //                .replace(R.id.fragment_container, HomeFragment())
 //                .commit()
 //        }
-        if(savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, RickMortyFragment())
-                .commit()
-        }
+
+        val navHomeFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment_container) as NavHostFragment
+
+        val navController = navHomeFragment.navController
     }
 }

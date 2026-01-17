@@ -1,5 +1,6 @@
 package com.example.apiintegration.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,15 +12,19 @@ import com.example.apiintegration.R
 import com.example.apiintegration.model.Result
 import com.example.apiintegration.model.RickMortyData
 
-class RickMortyAdapter: RecyclerView.Adapter<RickMortyAdapter.ViewHolder>() {
+class RickMortyAdapter(
+    private val onItemClick: (Result) -> Unit
+): RecyclerView.Adapter<RickMortyAdapter.ViewHolder>() {
 
     private val items = mutableListOf<Result>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(newItems: List<Result>) {
         items.clear()
         items.addAll(newItems)
         notifyDataSetChanged()
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -36,6 +41,10 @@ class RickMortyAdapter: RecyclerView.Adapter<RickMortyAdapter.ViewHolder>() {
         holder.name.text = item.name
         holder.gender.text = item.gender
         holder.image.load(item.image)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(item)
+        }
 
     }
 

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.navigation.safeargs)
 }
 
 android {
@@ -35,6 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+//    buildscript {
+//        dependencies {
+//            classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7")
+//        }
+//    }
 }
 
 dependencies {
@@ -43,6 +50,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,6 +71,9 @@ dependencies {
     implementation("io.coil-kt:coil:2.3.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
 
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
 
 
