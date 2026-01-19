@@ -8,15 +8,39 @@
         android:id="@+id/rickMortyFragment"
         android:name="com.example.apiintegration.ui.RickMortyFragment"
         android:label="RickMortyFragment">
-
         <action
             android:id="@+id/action_rickMortyFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.apiintegration.ui.RickMortyDetailFragment"
         android:label="DetailFragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+<!--        <argument-->
+<!--            android:name="name"-->
+<!--            app:argType="string" />-->
+<!--&lt;!&ndash;        <argument&ndash;&gt;-->
+<!--            android:name="gender"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="species"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="location"-->
+<!--            app:argType="string" />-->
+<!--        <argument-->
+<!--            android:name="status"-->
+<!--            app:argType="string" />-->
+
+<!--        <argument-->
+<!--            android:name="quoteImage"-->
+<!--            app:argType="string" />-->
+
     </fragment>
 </navigation>

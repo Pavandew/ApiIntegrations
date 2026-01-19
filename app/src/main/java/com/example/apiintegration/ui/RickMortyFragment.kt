@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apiintegration.R
@@ -41,7 +42,6 @@ class RickMortyFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.rick_morty_recyclerView)
 
-
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         adapter = RickMortyAdapter{clickedItem ->
@@ -51,7 +51,8 @@ class RickMortyFragment : Fragment() {
                 Toast.LENGTH_SHORT
             ).show()
 
-            val action  = RickMortyFragmentDirections.actionRickMortyFragmentToDetailFragment()
+            val action  = RickMortyFragmentDirections
+                .actionRickMortyFragmentToDetailFragment( clickedItem.id!!)
             findNavController().navigate(action)
 
         }
