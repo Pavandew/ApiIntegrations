@@ -10,7 +10,6 @@ class RickMortyRepository(private val api: ApiService) {
     suspend fun fetchRickMorty(): Response<RickMortyData> {
         return api.getRickMorty()
     }
-
     suspend fun fetchRickMortyDetail(id: Int): Response<Result> {
 
         return api.getRickMortyDetail(
